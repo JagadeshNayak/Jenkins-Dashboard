@@ -1,0 +1,63 @@
+Alright, let's break down the process of setting up a Jenkins dashboard on an AWS EC2 Ubuntu server, step-by-step instructions.
+
+**Prerequisites:
+
+1.  **AWS Account:**
+    * You'll need an active AWS account. If you don't have one, sign up for the AWS Free Tier.
+    * Access the AWS Management Console: [https://aws.amazon.com/console/](https://aws.amazon.com/console/)
+2.  **Server Knowledge:**
+    * Basic familiarity with Linux command-line interface (CLI).
+    * Understanding of server concepts (e.g., SSH, networking, security groups).
+
+**Step 1: Launch an EC2 Ubuntu Instance**
+
+1.  **Log in to the AWS Management Console.**
+2.  **Navigate to EC2:** Search for "EC2" in the search bar and select it.
+3.  **Launch Instance:** Click "Launch Instance."
+4.  **Choose an AMI:**
+    * Select "Ubuntu."
+    * Choose the latest LTS version (e.g., Ubuntu 20.04 or 22.04).
+    * Select the “free tier eligible” option.
+5.  **Choose an Instance Type:**
+    * Select "t2.micro" (free tier eligible).
+6.  **Configure Instance Details:**
+    * Leave the default settings for now.
+7.  **Add Storage:**
+    * The default 8GB is usually sufficient; adjust as needed.
+8.  **Add Tags (Optional):**
+    * Add a "Name" tag (e.g., "Jenkins Server").
+9.  **Configure Security Group:**
+    * **SSH:** Allow SSH access from your IP address (or 0.0.0.0/0 for testing, but restrict it later).
+    * **HTTP:** Add a rule to allow HTTP (port 8080) access from anywhere (0.0.0.0/0). This is for Jenkins.
+10. **Review and Launch:**
+    * Review your settings and click "Launch."
+11. **Create/Select Key Pair:**
+    * Create a new key pair or select an existing one.
+    * Download the `.pem` file and store it securely. You'll need this to SSH into your instance.
+
+**Step 2: Connect to the EC2 Instance**
+
+1.  **Open a terminal or command prompt.**
+2.  **Navigate to the directory containing your `.pem` file.**
+3.  **Change file permissions:**
+    * `chmod 400 your-key-pair.pem`
+4.  **SSH into the instance:**
+    * `ssh -i "your-key-pair.pem" ubuntu@your-public-ip-address`
+    * Replace `your-key-pair.pem` and `your-public-ip-address` with your actual values.
+
+**Step 3: Install Jenkins**
+
+1.  **Update package lists:**
+    * `sudo apt update`
+2.  **Install Java (Jenkins requires Java):**
+    * `sudo apt install openjdk-11-jre`
+3.  **Add Jenkins repository key:**
+    * `wget -q -O - https://pkg.jenkins.io/debian-stable/jenkins.io.key | sudo apt-key add -`
+4.  **Add Jenkins repository to sources list:**
+    * `sudo sh -c 'echo deb http://pkg.jenkins.io/debian-stable binary/ > /etc/apt/sources.list.d/jenkins.list'`
+5.  **Update package lists again:**
+    * `sudo apt update`
+6.  **Install Jenkins:**
+    * `sudo apt install jenkins`
+7.  **Check Jenkins status:**
+    * `sudo systemctl status jenkins`
