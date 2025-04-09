@@ -1,4 +1,4 @@
-**Jenkins on AWS EC2 for GitHub:** Setting up Jenkins on an AWS EC2 instance to work with GitHub allows you to create a powerful and flexible continuous integration/continuous delivery (CI/CD) pipeline.
+**Jenkins on AWS EC2 for GitHub and CI/CD pipelines :** Setting up Jenkins on an AWS EC2 instance to work with GitHub allows you to create a powerful and flexible continuous integration/continuous delivery (CI/CD) pipeline.
 ![A simple illustration showing the connection from AWS to Jenkins dashboard  The image should include](https://github.com/user-attachments/assets/bb3831fd-0322-483e-a37c-f56381231e68)
 **Launching an EC2 instance** involves several key steps, whether you're using the AWS Management Console or the AWS Command Line Interface (CLI). Here's a breakdown of the process, with an emphasis on how to give your instance a specific name:
 
@@ -53,8 +53,23 @@ After entering the username, email ID, and password, click on 'Save and Continue
 
 <img width="959" alt="Screenshot 2025-04-08 173109" src="https://github.com/user-attachments/assets/40a1e2ea-1f6a-4f1f-8b29-721d42069821" />
 fully configured."
+Go to 'Create New Item' and create a new job for the Jenkins CI/CD pipeline."
 
-**"We are now ready to use Jenkins and proceed with the integration of GitHub for our project."**
+<img width="959" alt="Screenshot 2025-04-08 173109" src="https://github.com/user-attachments/assets/0cf2936c-ce9d-481c-9782-204e0ba5c76f" />
+
+Please provide the Groovy code for generating a Jenkins pipeline, including complete details of each stage and the required credentials."
+
+<img width="951" alt="Screenshot 2025-04-09 214533" src="https://github.com/user-attachments/assets/1bfbfd97-8cab-45ef-bd1b-341cf5b1d557" />
+
+After writing the Jenkins pipeline code, make sure to select the correct branch (main or master) from the repository link, and then proceed to build the job."
+
+<img width="923" alt="image" src="https://github.com/user-attachments/assets/d408211a-6232-4c3f-8ec2-dacac1b79d13" />
+
+After clicking on 'Build Now', Jenkins will display the build history and status under the job name. For example, if your pipeline job is named 'test', you will see the corresponding build entries. The image below shows how it appears in Jenkins."
+
+
+
+
 
 
 
